@@ -1,0 +1,8 @@
+query
+SELECT d.last_name
+FROM driver d
+JOIN car_driver cd ON d.id = cd.driver_id
+JOIN car c ON cd.car_id = c.id
+WHERE c.brand = 'Toyota'
+GROUP BY d.id, d.last_name
+HAVING COUNT(cd.car_id) >= 2;
