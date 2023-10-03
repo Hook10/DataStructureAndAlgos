@@ -13,7 +13,9 @@ public class MergeTwoSortedArrays {
 
   public int[] merge(int[] arr1, int[] arr2, int n, int m) {
     int[] result = new int[n + m];
-    int i = 0; int j = 0; int k = 0;
+    int i = 0;
+    int j = 0;
+    int k = 0;
     while (i < n && j < m) {
       if (arr1[i] < arr2[j]) {
         result[k] = arr1[i];
