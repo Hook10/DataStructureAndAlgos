@@ -2,11 +2,13 @@ package org.hook.ds.string;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class StringUtil {
   public static void main(String[] args) {
     System.out.println(isSubsequence("abcde", "ace"));
     System.out.println(firstNonRepeatingCharacter("racecars"));
+    System.out.println(removeVowels("ice cream"));
   }
 
   public static boolean isSubsequence(String str, String seq) {
@@ -35,5 +37,17 @@ public class StringUtil {
       }
     }
     return -1;
+  }
+
+  public static String removeVowels(String str) {
+    Set<Character> vowels = Set.of('a', 'i', 'o', 'u', 'e');
+    StringBuilder sb = new StringBuilder();
+    char[] chars = str.toCharArray();
+    for (Character ch : chars) {
+      if (!vowels.contains(ch)) {
+        sb.append(ch);
+      }
+    }
+    return sb.toString();
   }
 }
