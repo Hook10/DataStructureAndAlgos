@@ -73,6 +73,7 @@ public class ArrayUtils {
       windowSum = windowSum + arr[end];
       if (end >= k - 1) {
         maxSum = Math.max(maxSum, windowSum);
+        windowSum = windowSum - arr[start];
         start++;
       }
     }
