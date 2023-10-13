@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class ArrayUtils {
   public static void main(String[] args) {
-
-    Arrays.stream(findProduct(new int[]{1, 2, 3, 4})).forEach(e -> System.out.print(e + " "));
+    Arrays.stream(findProduct(new int[]{1, 2, 3, 4})).forEach(e -> System.out.print(e + "  "));
+    System.out.println("\nMaxSubArraySum is: " + maxSubArraySum(new int[]{2, 7, 3, 5, 8, 1}, 3));
   }
 
   public static int removeDuplicates(int[] nums) {
@@ -63,6 +63,20 @@ public class ArrayUtils {
       temp = temp * arr[i];
     }
     return result;
+  }
+
+  public static int maxSubArraySum(int[] arr, int k) {
+    int maxSum = 0;
+    int windowSum = 0;
+    int start = 0;
+    for (int end = 0; end < arr.length; end++) {
+      windowSum = windowSum + arr[end];
+      if (end >= k - 1) {
+        maxSum = Math.max(maxSum, windowSum);
+        start++;
+      }
+    }
+    return maxSum;
   }
 
 
